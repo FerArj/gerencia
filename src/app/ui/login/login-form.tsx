@@ -1,12 +1,22 @@
 "use client";
-
 import { useForm } from "react-hook-form";
+import { AxiosResponse } from "axios";
+import api from "../../../../services/api.js";
 
 export default function LoginForm() {
   const { register, handleSubmit } = useForm();
+  
+  interface LoginData {
+    username: string;
+    password: string;
+  }
 
-  const entrar = () => {
-    console.log("Entrou");
+  const entrar = (data: LoginData) => {
+    api.post("/lojas/login", data).then((response: AxiosResponse) => {
+      console.log(response);
+    }).catch((error:any) => {
+      console.log(error);
+    })
   };
 
   return (
@@ -22,7 +32,7 @@ export default function LoginForm() {
             id="email"
             {...register("email")}
             placeholder="Digite seu email"
-            className="outline-none p-2  border-b_gray border-2"
+            className="outline-none p-2  border-gray border-2"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -32,7 +42,7 @@ export default function LoginForm() {
             id="password"
             {...register("password")}
             placeholder="Digite sua senha"
-            className="outline-none p-2  border-b_gray border-2"
+            className="outline-none p-2  border-gray border-2"
           />
         </div>
         <button className='bg-orange text-white p-2 mt-2 font-bold cursor-pointer' type='submit'>Entrar em Minha Loja</button>
