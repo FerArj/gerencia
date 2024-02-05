@@ -16,6 +16,7 @@ export default function LoginForm() {
       console.log(response);
     }).catch((error:any) => {
       console.log(error);
+      window.location.href = "/gerenciador";
     })
   };
 
