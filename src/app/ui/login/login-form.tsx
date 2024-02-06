@@ -2,12 +2,13 @@
 import { useForm } from "react-hook-form";
 import { AxiosResponse } from "axios";
 import api from "../../../../services/api.js";
+import Link from "next/link";
 
 export default function LoginForm() {
-  const { register, handleSubmit } = useForm();
-  
+  const { register, handleSubmit } = useForm<LoginData>();
+
   interface LoginData {
-    username: string;
+    email: string;
     password: string;
   }
 
@@ -16,7 +17,6 @@ export default function LoginForm() {
       console.log(response);
     }).catch((error:any) => {
       console.log(error);
-      window.location.href = "/gerenciador";
     })
   };
 
@@ -46,6 +46,7 @@ export default function LoginForm() {
             className="outline-none p-2  border-gray border-2"
           />
         </div>
+        <Link href="/gerenciador">teste</Link>
         <button className='bg-orange text-white p-2 mt-2 font-bold cursor-pointer' type='submit'>Entrar em Minha Loja</button>
       </div>
     </form>
