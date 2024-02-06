@@ -47,7 +47,7 @@ export default function SideNav() {
             </span>
           </Link>
           <div className="relative top-96 mt-10">
-            <span onClick={handleLogout} className="flex h-12 w-full p-2 items-center hover:bg-opacity-25 hover:bg-white gap-2 cursor-pointer">
+            <span onClick={handleLogout} className="flex h-12 w-full p-2   items-center hover:bg-opacity-25 hover:bg-white gap-2 cursor-pointer">
               <PowerIcon width={"30px"} />
               <span>Sair</span>
             </span>
