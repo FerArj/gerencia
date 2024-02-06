@@ -1,7 +1,7 @@
 export default function Page () {
     return (
         <div>
-            <h1>gerenciador</h1>
+            <h1>Visão Geral</h1>
         </div>
     )
 }
